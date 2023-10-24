@@ -1,0 +1,43 @@
+- Open source monitoring and alertimng tool
+- ALthogh can be used to monitor non containerized infra
+- but over the past years main stream monitoring tool of choice in containers and microservices architecture
+- pull based mechanism (Being pull-based means that the prometheus server pulls metrics from targets (your infrastructure and applications) rather than infrastructure and applications pushing metrics data to Prometheus.)
+- uses its own query language that is PROMQL
+- For POD level monitoring -> Kubestate metrics
+- Node exporter -> Node level monitoring
+- scrape config 
+- Prometheus typically uses an HTTP endpoint
+
+WHY?
+Moderm devops is becoming more and more complex with lenthy CICD pipe lines that have services strictly dependent on one anothger
+where in failure of one service can lead a huge disaster 
+So when application is down and you need to figure out quickly that among thousands of pods which one is exactly having error
+Monitoring is very useful
+
+SCenario
+One of the servers went low on memory and kicked off a running conatiner that was responsible for 
+providing database sync btw two database pods 
+= two database failed
+Application cannot authenbticate users 
+= end users will only see unable to authenticate error 
+
+So now we will check everythging backwards which will take a lot of time
+
+BUt what would make this process faster is if we had a continous monitoring tool
+that would tell us that a particular pod jhas crashed
+or even better if it could tell that the server might be low on memory
+
+Prometheus ARchitecture
+
+Core it has Prometheus Servere
+- Data Retrieval worker
+- Time SSeries DB
+- HTTP server that recieves requests to see that data
+
+Many services dont have native prometheus endpoint 
+So they require and exporter
+example - if we want to monitor a linux server then download the exporter file untar it and execute
+
+What makes Prometheus so special is that uses a pull mechanism rather than a push mechanism like in New Relic and Cloudwatch
+This makes Prometheus suitable for container monitoring
+because if it push mechanism daemon needs to be installed on thousands of conatoners and the contaioners would flood the Prometheus srever with metrics
