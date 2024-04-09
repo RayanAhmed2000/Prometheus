@@ -7,6 +7,7 @@
 - Node exporter -> Node level monitoring
 - scrape config 
 - Prometheus typically uses an HTTP endpoint
+- Designed to monitor time series data that is numeric data not designed to monoitor non numeric data like evenets logs etc
 
 WHY?
 Moderm devops is becoming more and more complex with lenthy CICD pipe lines that have services strictly dependent on one anothger
@@ -41,3 +42,29 @@ example - if we want to monitor a linux server then download the exporter file u
 What makes Prometheus so special is that uses a pull mechanism rather than a push mechanism like in New Relic and Cloudwatch
 This makes Prometheus suitable for container monitoring
 because if it push mechanism daemon needs to be installed on thousands of conatoners and the contaioners would flood the Prometheus srever with metrics
+
+
+
+
+
+
+
+
+Practical Grafana and Prometheus setup
+
+PromQL
+Connections > Datasources -> provide endpoint of Grafana (IP:9090)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
