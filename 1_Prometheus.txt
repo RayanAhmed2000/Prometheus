@@ -12,6 +12,7 @@
 WHY?
 Moderm devops is becoming more and more complex with lenthy CICD pipe lines that have services strictly dependent on one anothger
 where in failure of one service can lead a huge disaster 
+Despite automation, issues can still occur in a Kubernetes environment. Monitoring helps detect anomalies, such as service failures, performance bottlenecks, resource exhaustion, or network issues. With timely alerts, operators can respond quickly to resolve issues and minimize downtime.
 So when application is down and you need to figure out quickly that among thousands of pods which one is exactly having error
 Monitoring is very useful
 
